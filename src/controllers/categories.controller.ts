@@ -84,7 +84,7 @@ export class CategoriesController {
     const category = await categoryRepository.findOne({
       where: { id }
     })
-    if (!category) {
+    if (category) {
       await categoryRepository.remove(category)
       res.sendStatus(204);
     } else {
